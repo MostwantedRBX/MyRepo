@@ -27,7 +27,7 @@ local function extrapolateKey(link)
 
 	-- Item Code: |cffa335ee|Hkeystone:180653:382:6:10:11:0:0|h[Keystone: Theater of Pain (6)]|h|r
 	-- |cffa335ee 						= color information
-	-- |H								= hyperlink information
+	-- |H								= hyperlink information start
 	-- keystone:180653:382:6:10:11:0:0 	= item information
 		-- :180653							= item id (mythic keystone)
 		-- :382								= dungeon/instance ID
@@ -40,6 +40,8 @@ local function extrapolateKey(link)
 
 	local key = searchForKey()
 	local instanceId = string.find(key, ":%d%d%d:")
+	-- can use substring since we know they are constants probably,
+	-- or colon delimeters rather than string.find
 end
 
 local function eventHandler(self, event, arg1)
@@ -69,7 +71,6 @@ local function eventHandler(self, event, arg1)
 		end
 	end
 end
-
 
 local eventFrame = CreateFrame("FRAME","WeeklyKeystoneTracker")
 eventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
