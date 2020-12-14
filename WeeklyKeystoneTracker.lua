@@ -38,7 +38,6 @@ end
 -- Takes the keyLink provided and extracts the information from it
 -- Example: |cffa335ee|Hkeystone:180653:382:6:10:11:0:0|h[Keystone: Theater of Pain (6)]|h|r
 
-local function extrapolateKey(link)
 	-- working on this, next, %d is digits in a pattern
 
 	-- Item Code: |cffa335ee|Hkeystone:180653:382:6:10:11:0:0|h[Keystone: Theater of Pain (6)]|h|r
@@ -147,4 +146,4 @@ EventFrame:RegisterEvent("ADDON_LOADED")
 EventFrame:RegisterEvent("CHALLENGE_MODE_COMPLETED")
 EventFrame:RegisterEvent("CHALLENGE_MODE_START")
 EventFrame:RegisterEvent("BAG_UPDATE")
-EventFrame:SetScript("OnEvent", eventHandler
+EventFrame:SetScript("OnEvent", eventHandler)
