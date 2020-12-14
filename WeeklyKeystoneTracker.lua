@@ -116,9 +116,24 @@ local function eventHandler(self, event, arg1)
 	elseif event == "CHALLENGE_MODE_COMPLETED" then
 		print("Challenge mode completed!")
 		-- End of CHALLENGE_MODE_COMPLETED event
+	elseif event == "CHALLENGE_MODE_START" then
+		print("Challenge mode started!")
+		local mapChallengeModeID = C_ChallengeMode.GetActiveChallengeMapID()
+		local activeKeystoneLevel, activeAffixIDs, wasActiveKeystoneCharged = C_ChallengeMode.GetActiveKeystoneInfo()
+		local challengeModeActive = C_ChallengeMode.IsChallengeModeActive()
+
+		SendChatMessage("Challenge Mode Starting! Get ready.", "PARTY", "Common");
+		SendChatMessage("Dungeon: " .. mapChallengeModeID, "Whisper", "Common", "Jayisapriest");
+		SendChatMessage("Key Level: " .. activeKeystoneLevel, "Whisper", "Common", "Jayisapriest");
+		SendChatMessage("activeAffixIDs: " .. activeAffixIDs, "Whisper", "Common", "Jayisapriest");
+		SendChatMessage("wasActiveKeystoneCharged: " .. wasActiveKeystoneCharged, "Whisper", "Common", "Jayisapriest");
+		SendChatMessage("challengeModeActive: " .. challengeModeActive, "Whisper", "Common", "Jayisapriest");
+
+
+
+		-- End of CHALLENGE_MODE_COMPLETED event
 	elseif event == "BAG_UPDATE" then
 		print("Bag updated.")
-
 	end
 end
 
@@ -126,5 +141,6 @@ local EventFrame = CreateFrame("frame","EventFrame")
 EventFrame:RegisterEvent("PLAYER_LOGIN")
 EventFrame:RegisterEvent("ADDON_LOADED")
 EventFrame:RegisterEvent("CHALLENGE_MODE_COMPLETED")
+EventFrame:RegisterEvent("CHALLENGE_MODE_START")
 EventFrame:RegisterEvent("BAG_UPDATE")
 EventFrame:SetScript("OnEvent", eventHandler)
