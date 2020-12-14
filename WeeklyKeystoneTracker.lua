@@ -137,6 +137,8 @@ local function eventHandler(self, event, arg1)
 		-- End of CHALLENGE_MODE_COMPLETED event
 	elseif event == "BAG_UPDATE" then
 		print("Bag updated.")
+		local mapChallengeModeID, level, time, onTime, keystoneUpgradeLevels, practiceRun = C_ChallengeMode.GetCompletionInfo()
+
 	end
 end
 
